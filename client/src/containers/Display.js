@@ -7,9 +7,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         [theme.breakpoints.down('sm')]: {
             borderTop: '1px solid rgba(144,144,144,.2)',
+            overflow: 'scroll',
         },
         borderLeft: '1px solid rgba(144,144,144,.2)',
-        overflow: 'scroll',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',

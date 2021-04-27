@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
             padding: theme.spacing(2),
             flexDirection: 'column',
             justifyContent: 'space-around',
-            border: '1px solid',
+            borderRadius:10,
+            border: '1px solid rgba(144,144,144,.5)',
             '& > div': {
                 margin: theme.spacing(1),
 
