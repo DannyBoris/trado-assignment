@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, OutlinedInput, Select, Button, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -7,12 +7,13 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         '& > form': {
             display: 'flex',
-            padding: theme.spacing(0, 2),
+            padding: theme.spacing(2),
             flexDirection: 'column',
             justifyContent: 'space-around',
             border: '1px solid',
-            height: '50%',
             '& > div': {
+                margin: theme.spacing(1),
+
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -31,7 +32,7 @@ export default function OpeningHoursPage({ setHours, handleChange }) {
     const classes = useStyles()
 
     const SelectWithDays = (name) => (
-        <Select name={name} onChange={handleChange} variant="outlined" disableUnderline native>
+        <Select name={name} onChange={handleChange} disableUnderline native>
             {days.map((d) => (
                 <option>{d}</option>
             ))}
@@ -50,7 +51,7 @@ export default function OpeningHoursPage({ setHours, handleChange }) {
                     {SelectWithDays('toDay')}
                     <OutlinedInput onChange={handleChange} name="toHour" type="time" />
                 </div>
-                <Button type="submit" variant="outlined">
+                <Button variant="outlined" type="submit">
                     Add hours
                 </Button>
             </form>

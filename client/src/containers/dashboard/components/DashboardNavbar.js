@@ -1,6 +1,6 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { makeStyles, Typography } from '@material-ui/core'
+import { NavLink as Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -10,22 +10,39 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'space-around',
         width: '100%',
-        borderBottom: '1px solid black',
+        borderBottom: `1px solid ${theme.palette.secondary.main}`,
     },
 }))
+
+const links = []
 
 export default function DashboardNavbar() {
     const classes = useStyles()
     return (
         <nav className={classes.root}>
-            <Link to="/about">
-                <span>About</span>
+            <Link
+                activeStyle={{
+                    borderBottom: '1px solid black',
+                }}
+                to="/about"
+            >
+                <Typography variant="body1">About</Typography>
             </Link>
-            <Link to="/images">
-                <span>Images</span>
+            <Link
+                activeStyle={{
+                    borderBottom: '1px solid black',
+                }}
+                to="/images"
+            >
+                <Typography variant="body1">Images</Typography>
             </Link>
-            <Link to="/hours">
-                <span>Opening Hours</span>
+            <Link
+                activeStyle={{
+                    borderBottom: '1px solid black',
+                }}
+                to="/hours"
+            >
+                <Typography variant="body1">Opening Hours</Typography>
             </Link>
         </nav>
     )

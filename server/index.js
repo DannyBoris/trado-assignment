@@ -1,16 +1,16 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const fs = require("fs");
 const app = express();
 const ColorThief = require("color-thief");
-const path = require("path");
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
-
 const IMAGE_PATH = "IMAGE.png";
 const cf = new ColorThief();
-const CLEAN_BASE_64_RGX = /^data:image\/(png|jpg|jpeg);base64,/;
-app.post("/api/logo", (req, res, next) => {
-  var base64Data = req.body.data.replace(CLEAN_BASE_64_RGX, "");
+const CLEAN_BASE_64_RGX = /^data:image\/(png|jpg|jpeg|jfif);base64,/;
+
+app.post("/api/logo", (req, res) => {
+  const { data } = req.body;
+  var base64Data = data.replace(CLEAN_BASE_64_RGX, "");
   fs.writeFile(IMAGE_PATH, base64Data, "base64", function (err) {
     if (!err) {
       let image = fs.readFileSync(IMAGE_PATH);

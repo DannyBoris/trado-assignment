@@ -1,17 +1,21 @@
 import React from 'react'
 
 import { Divider, makeStyles, Typography } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        borderLeft: '1px solid',
-
+        [theme.breakpoints.down('sm')]: {
+            borderTop: '1px solid rgba(144,144,144,.2)',
+        },
+        borderLeft: '1px solid rgba(144,144,144,.2)',
+        overflow: 'scroll',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
         flex: 0.4,
         padding: theme.spacing(3),
-        '& > p': {
+        '& > p,h3': {
             textAlign: 'left',
         },
     },
@@ -29,7 +33,7 @@ function Display({ about }) {
             <Typography variant="body1">{about.desc}</Typography>
             <Typography>
                 Join us at:
-                <a href="#"> {about.url}</a>
+                <Link to={about.url}> {about.url}</Link>
             </Typography>
             {about.hours.map((h) => (
                 <div>

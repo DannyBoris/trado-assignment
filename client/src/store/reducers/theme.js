@@ -1,6 +1,6 @@
 const DEFAULT_STATE = {
-    primary: 'rgb(255,0,0)',
-    secondary: 'rgb(0,255,0)',
+    primary: 'rgb(255,255,255)',
+    secondary: 'rgb(0,0,0)',
 }
 
 export default (state = DEFAULT_STATE, action) => {

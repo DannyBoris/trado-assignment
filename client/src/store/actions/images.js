@@ -13,7 +13,6 @@ export function fetchImages(q) {
     return function (dispatch) {
         apiCall('get', `${PIXABAY_BASE_URL}/?key=21344459-24ae0bda7764e72ff3420d8c2&q=${q}`)
             .then((res) => {
-                console.log(res.hits)
                 const smallImages = res.hits.slice(0, 6).map((img) => img.previewURL)
                 dispatch(setImages(smallImages))
             })

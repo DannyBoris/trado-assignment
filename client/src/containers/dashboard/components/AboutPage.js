@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
+import { Avatar, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     root: {},
@@ -33,9 +33,13 @@ const useStyles = makeStyles((theme) => ({
             },
         },
     },
+    avatar:{
+        width:40,
+        height:40,
+    }
 }))
 
-export default function AboutPage({ handleChange, setLogo }) {
+export default function AboutPage({ handleChange, setLogo, preview }) {
     const classes = useStyles()
     return (
         <>

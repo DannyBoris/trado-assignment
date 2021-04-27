@@ -23,6 +23,7 @@ function Dashboard() {
     const { images, about } = useSelector((state) => state)
     const classes = useStyles()
     const [imageTerm, setImageTerm] = useState('')
+    const [preview, setPreview] = useState('')
     const [aboutForm, setAboutForm] = useState({
         name: 'Bussiness name goes here',
         desc: 'Description goes here',
@@ -73,6 +74,7 @@ function Dashboard() {
         const reader = new FileReader()
         reader.onload = () => {
             let logo = reader.result
+            setPreview(logo)
             dispatch(fetchLogoColor(logo))
         }
         reader.readAsDataURL(file)
@@ -85,7 +87,9 @@ function Dashboard() {
                 <Route
                     exact
                     path="/about"
-                    render={() => <AboutPage setLogo={setLogo} handleChange={handleAboutFormChange} />}
+                    render={() => (
+                        <AboutPage preview={preview} setLogo={setLogo} handleChange={handleAboutFormChange} />
+                    )}
                 />
                 <Route
                     exact

@@ -11,7 +11,6 @@ export function setAboutDetails(data) {
 }
 
 export function fetchLogoColor(data) {
-    console.log(data)
     return function (dispatch) {
         apiCall('post', '/api/logo', { data })
             .then((res) => {

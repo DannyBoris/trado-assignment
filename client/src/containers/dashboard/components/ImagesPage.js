@@ -19,7 +19,16 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     image: {
-        objectFit: 'cover',
+        [theme.breakpoints.down('sm')]:{
+            width:100,
+            height:100,
+        },
+        width:175,
+        backgroundColor:'rgba(144,144,144,.1)',
+        height:175,
+        objectFit: 'contain',
+        margin:theme.spacing(.5)
+ 
     },
 }))
 
@@ -41,7 +50,7 @@ export default function ImagesPage({ setTerm, handleSubmit, images, loading }) {
                 />
             </form>
             {!loading ? (
-                <div>
+                <div style={{ display: 'flex',justifyContent:'center', flexWrap:'wrap' }}>
                     {images.length > 0 &&
                         images.map((img) => (
                             <img key={img} alt="preview" className={classes.image} src={img} />

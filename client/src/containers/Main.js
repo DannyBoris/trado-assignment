@@ -8,17 +8,12 @@ import { useEffect } from 'react'
 const useStyles = makeStyles((theme) => ({
     container: {
         [theme.breakpoints.down('sm')]: {
-            height: '100vmin',
+            flexDirection:'column'
         },
+        height:'100vh',
         boxShadow: theme.shadows[15],
         background: 'white',
         display: 'flex',
-        height: '75vmin',
-        width: '100vmin',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
         background: theme.palette.primary.main,
     },
 }))
